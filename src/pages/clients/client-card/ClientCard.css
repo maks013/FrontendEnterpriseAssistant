@@ -1,0 +1,55 @@
+.client-card {
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Tahoma, sans-serif;
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.company-name, .contact-name, .email {
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.company-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-family: Tahoma, sans-serif;
+}
+
+.contact-name {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 4px;
+    font-family: Tahoma, sans-serif;
+}
+
+.email {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 16px;
+    font-family: Tahoma, sans-serif;
+}
+
+.details-button {
+    padding: 10px 20px;
+    background-color: white;
+    color: #59ce8f;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: Tahoma, sans-serif;
+}
+
+.details-button:hover {
+    background-color: #59ce8f;
+    color: white;
+}
