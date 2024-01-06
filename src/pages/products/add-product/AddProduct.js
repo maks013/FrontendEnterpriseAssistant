@@ -89,8 +89,8 @@ const AddProduct = () => {
                     <div className="input-group">
                         <input type="text" id="additionalInformation" placeholder="Informacje dodatkowe" onChange={handleChange}/>
                     </div>
-                    <button type="submit">Dodaj produkt</button>
-                    <button className="cancel-adding" onClick={handleCancelAdding}>Anuluj</button>
+                    <button className="add-product-button" type="submit">Dodaj produkt</button>
+                    <button className="cancel-adding-product" onClick={handleCancelAdding}>Anuluj</button>
                 </form>
             </div>
         </div>

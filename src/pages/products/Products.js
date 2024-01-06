@@ -71,7 +71,7 @@ const Services = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
-                <button className="add-product-button" onClick={handleAddClient}>+ Dodaj nowy produkt</button>
+                <button className="add-new-product-button" onClick={handleAddClient}>+ Dodaj nowy produkt</button>
             </div>
             <div className="service-list">
                 {filteredClients.map((product, index) => (
