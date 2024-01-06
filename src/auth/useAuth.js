@@ -18,5 +18,6 @@ export const useAuth = () => {
         const interval = setInterval(checkAuth, 1000);
 
         return () => clearInterval(interval);
+
     }, [navigate]);
 };

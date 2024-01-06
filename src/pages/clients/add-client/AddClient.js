@@ -24,6 +24,10 @@ const AddClient = () => {
         setFormData({ ...formData, [e.target.id]: e.target.value });
     };
 
+    const handleCancelAdding = () => {
+        navigate("/clients");
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -68,7 +72,7 @@ const AddClient = () => {
         <div className="home-add-client">
             <Header/>
             <div className="add-client-container">
-                <text className="client-text">Dane klienta</text>
+                <text className="client-text">Dodawanie klienta</text>
                 <form className="add-client-form" onSubmit={handleSubmit}>
                     <div className="input-group">
                         <input type="text" id="taxIdNumber" placeholder="NIP" onChange={handleChange} required/>
@@ -98,6 +102,7 @@ const AddClient = () => {
                         <input type="text" id="emailAddress" placeholder="Adres e-mail" onChange={handleChange} required/>
                     </div>
                     <button type="submit">Dodaj klienta</button>
+                    <button className="cancel-adding" onClick={handleCancelAdding}>Anuluj</button>
                 </form>
             </div>
         </div>

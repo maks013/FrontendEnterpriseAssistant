@@ -12,6 +12,14 @@ const Home = () => {
         navigate("/clients");
     }
 
+    const handleServicesClick = () => {
+        navigate("/services");
+    }
+
+    const handleProductsClick = () => {
+        navigate("/products");
+    }
+
     useEffect(() => {
         const token = localStorage.getItem('token');
 
@@ -26,8 +34,8 @@ const Home = () => {
             <div className="main-content">
                 <div className="tile add-order">+ Dodaj zamówienie</div>
                 <div className="tile">Zamówienia</div>
-                <div className="tile">Produkty</div>
-                <div className="tile">Usługi</div>
+                <div className="tile" onClick={() => handleProductsClick()}>Produkty</div>
+                <div className="tile" onClick={() => handleServicesClick()}>Usługi</div>
                 <div className="tile" onClick={() => handleClientsClick()}>Klienci</div>
                 <div className="tile">Faktury</div>
             </div>
