@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import ClientCard from './client-card/ClientCard';
 import Header from '../../components/header/Header';
-import './Clients.css';
+import ServiceCard from '../services/service-card/ServiceCard.js'
+import './Services.css';
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../auth/useAuth";
 
-const Clients = () => {
+const Services = () => {
     useAuth();
-    const [clientsData, setClientsData] = useState([]);
+    const [servicesData, setServicesData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Clients = () => {
             const token = localStorage.getItem('token');
 
             try {
-                const response = await fetch('http://localhost:8080/clients', {
+                const response = await fetch('http://localhost:8080/services', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -28,10 +28,13 @@ const Clients = () => {
                 }
 
                 const data = await response.json();
-                setClientsData(data.map(client => ({
-                    companyName: client.companyName,
-                    contactName: `${client.representative.name} ${client.representative.surname}`,
-                    email: client.representative.email,
+                setServicesData(data.map(service => ({
+                    id: service.id,
+                    name: service.name,
+                    priceGross: service.priceGross,
+                    priceNet: service.priceNet,
+                    imageUrl: service.imageUrl,
+                    additionalInformation: service.additionalInformation,
                 })));
             } catch (error) {
                 console.error('There was a problem with the fetch operation:', error);
@@ -44,23 +47,20 @@ const Clients = () => {
         return () => clearInterval(interval);
     }, [navigate]);
 
-
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
     };
 
-    const filteredClients = clientsData.filter(client =>
-        client.companyName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        client.contactName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        client.email.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredClients = servicesData.filter(service =>
+        service.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     const handleAddClient = () => {
-        navigate("/clients/add-client");
+        navigate("/services/add-service");
     };
 
     return (
-        <div className="home-clients">
+        <div className="home-services">
             <Header/>
             <div className="search-add-container">
                 <input
@@ -70,15 +70,18 @@ const Clients = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
-                <button className="add-client-button" onClick={handleAddClient}>+ Dodaj nowego klienta</button>
+                <button className="add-service-button" onClick={handleAddClient}>+ Dodaj nową usługę</button>
             </div>
-            <div className="client-list">
-                {filteredClients.map((client, index) => (
-                    <ClientCard
+            <div className="service-list">
+                {filteredClients.map((service, index) => (
+                    <ServiceCard
                         key={index}
-                        companyName={client.companyName}
-                        contactName={client.contactName}
-                        email={client.email}
+                        id={service.id}
+                        name={service.name}
+                        priceGross={service.priceGross}
+                        priceNet={service.priceNet}
+                        imageUrl={service.imageUrl}
+                        additionalInformation={service.additionalInformation}
                     />
                 ))}
             </div>
@@ -86,4 +89,4 @@ const Clients = () => {
     );
 };
 
-export default Clients;
+export default Services;

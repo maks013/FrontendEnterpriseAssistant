@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import ClientCard from './client-card/ClientCard';
 import Header from '../../components/header/Header';
-import './Clients.css';
+import ProductCard from '../products/product-card/ProductCard.js'
+import './Products.css';
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../auth/useAuth";
 
-const Clients = () => {
+const Services = () => {
     useAuth();
-    const [clientsData, setClientsData] = useState([]);
+    const [productsData, setProductsData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Clients = () => {
             const token = localStorage.getItem('token');
 
             try {
-                const response = await fetch('http://localhost:8080/clients', {
+                const response = await fetch('http://localhost:8080/products', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -28,10 +28,14 @@ const Clients = () => {
                 }
 
                 const data = await response.json();
-                setClientsData(data.map(client => ({
-                    companyName: client.companyName,
-                    contactName: `${client.representative.name} ${client.representative.surname}`,
-                    email: client.representative.email,
+                setProductsData(data.map(product => ({
+                    id: product.id,
+                    gtin: product.gtin,
+                    name: product.name,
+                    priceGross: product.priceGross,
+                    priceNet: product.priceNet,
+                    imageUrl: product.imageUrl,
+                    additionalInformation: product.additionalInformation,
                 })));
             } catch (error) {
                 console.error('There was a problem with the fetch operation:', error);
@@ -44,23 +48,20 @@ const Clients = () => {
         return () => clearInterval(interval);
     }, [navigate]);
 
-
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
     };
 
-    const filteredClients = clientsData.filter(client =>
-        client.companyName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        client.contactName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        client.email.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredClients = productsData.filter(service =>
+        service.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     const handleAddClient = () => {
-        navigate("/clients/add-client");
+        navigate("/products/add-product");
     };
 
     return (
-        <div className="home-clients">
+        <div className="home-products">
             <Header/>
             <div className="search-add-container">
                 <input
@@ -70,15 +71,19 @@ const Clients = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
-                <button className="add-client-button" onClick={handleAddClient}>+ Dodaj nowego klienta</button>
+                <button className="add-product-button" onClick={handleAddClient}>+ Dodaj nowy produkt</button>
             </div>
-            <div className="client-list">
-                {filteredClients.map((client, index) => (
-                    <ClientCard
+            <div className="service-list">
+                {filteredClients.map((product, index) => (
+                    <ProductCard
                         key={index}
-                        companyName={client.companyName}
-                        contactName={client.contactName}
-                        email={client.email}
+                        id={product.id}
+                        name={product.name}
+                        gtin={product.gtin}
+                        priceGross={product.priceGross}
+                        priceNet={product.priceNet}
+                        imageUrl={product.imageUrl}
+                        additionalInformation={product.additionalInformation}
                     />
                 ))}
             </div>
@@ -86,4 +91,4 @@ const Clients = () => {
     );
 };
 
-export default Clients;
+export default Services;

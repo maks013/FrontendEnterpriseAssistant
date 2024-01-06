@@ -1,4 +1,4 @@
-.home-add-client {
+.home-add-service {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@
     background-color: #f7f7f7;
 }
 
-.add-client-container {
+.add-service-container {
     width: 100%;
     max-width: 600px;
     padding: 20px;
@@ -20,14 +20,14 @@
     align-items: center;
 }
 
-.client-text {
+.service-text {
     margin-bottom: 20px;
     font-size: 26px;
     font-weight: bold;
     font-family: Tahoma, sans-serif;
 }
 
-.add-client-form {
+.add-service-form {
     width: 100%;
 }
 
@@ -44,23 +44,10 @@
 
 button {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     background-color: white;
     border: none;
     color: #59ce8f;
-    font-size: 16px;
-    margin-top: 5px;
-    cursor: pointer;
-    border-radius: 6px;
-    font-family: Tahoma, sans-serif;
-}
-
-.cancel-adding {
-    width: 100%;
-    padding: 5px;
-    background-color: white;
-    border: none;
-    color: #ff1e00;
     font-size: 16px;
     margin-top: 5px;
     cursor: pointer;
