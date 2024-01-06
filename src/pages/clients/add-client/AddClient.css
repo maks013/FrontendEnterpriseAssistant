@@ -5,15 +5,16 @@
     padding: 20px;
     min-height: 100vh;
     margin-top: 200px;
-    background-color: #f7f7f7;
+    background-color: #E9F1FA;
+    color: #0d3e71;
 }
 
 .add-client-container {
     width: 100%;
     max-width: 600px;
     padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background: #ffffff;
+    /*box-shadow: 0 2px 20px rgb(13, 62, 113, 0.3);*/
+    background: #E9F1FA;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -42,12 +43,12 @@
     border-radius: 8px;
 }
 
-button {
+.add-button {
     width: 100%;
     padding: 5px;
-    background-color: white;
+    background-color: #E9F1FA;
     border: none;
-    color: #59ce8f;
+    color: #00ABE4;
     font-size: 16px;
     margin-top: 5px;
     cursor: pointer;
@@ -58,9 +59,9 @@ button {
 .cancel-adding {
     width: 100%;
     padding: 5px;
-    background-color: white;
+    background-color: #E9F1FA;
     border: none;
-    color: #ff1e00;
+    color: #0d3e71;
     font-size: 16px;
     margin-top: 5px;
     cursor: pointer;

@@ -5,7 +5,13 @@
     padding: 20px;
     gap: 20px;
     min-height: 100vh;
-    background-color: #f7f7f7;
+    background-color: #E9F1FA;
+}
+html {
+    background-color: #E9F1FA;
+}
+body {
+    background-color: #E9F1FA;
 }
 
 .main-content {
@@ -20,9 +26,12 @@
 }
 
 .tile {
-    background: #fff;
+    background: #E9F1FA;
+    color: #0d3e71;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: white;
+    border-width: 10px;
+    box-shadow: 0 2px 20px rgb(13, 62, 113, 0.3);
     padding: 20px;
     text-align: center;
     font-size: 24px;
@@ -38,11 +47,11 @@
 }
 
 .tile:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
 }
 
 .tile.add-order {
-    background-color: #59ce8f;
+    background-color: #00ABE4;
     color: white;
 }
 

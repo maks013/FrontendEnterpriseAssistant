@@ -20,6 +20,7 @@
     max-width: 500px;
     width: 90%;
     font-family: Tahoma, sans-serif;
+    color: #0d3e71;
 }
 
 .modal button {
@@ -32,27 +33,15 @@
 
 .edit-button {
     background-color: white;
-    color: #59ce8f;
-}
-
-.edit-button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #00ABE4;
 }
 
 .delete-button {
     background-color: white;
-    color: #ff1e00;
-}
-
-.delete-button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #0d3e71;
 }
 
 .close-button {
     background-color: white;
-    color: #ff1e00;
-}
-
-.close-button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #0d3e71;
 }

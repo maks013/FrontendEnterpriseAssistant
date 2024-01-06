@@ -23,18 +23,10 @@
 
 .confirm-button {
     background: white;
-    color: #59ce8f;
+    color: #00ABE4;
 }
 
-.confirm-button:hover {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.cancel-button {
-    background: #ff1e00;
-    color: white;
-}
-
-.cancel-button:hover {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.confirmation-cancel-button {
+    background: white;
+    color: #0d3e71;
 }

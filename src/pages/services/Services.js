@@ -70,7 +70,7 @@ const Services = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
-                <button className="add-service-button" onClick={handleAddClient}>+ Dodaj nową usługę</button>
+                <button className="add-new-service-button" onClick={handleAddClient}>+ Dodaj nową usługę</button>
             </div>
             <div className="service-list">
                 {filteredClients.map((service, index) => (

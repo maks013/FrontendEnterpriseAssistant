@@ -78,8 +78,8 @@ const AddService = () => {
                     <div className="input-group">
                         <input type="text" id="additionalInformation" placeholder="Informacje dodatkowe" onChange={handleChange}/>
                     </div>
-                    <button type="submit">Dodaj usługę</button>
-                    <button className="cancel-adding" onClick={handleCancelAdding} >Anuluj</button>
+                    <button className="add-service-button" type="submit">Dodaj usługę</button>
+                    <button className="cancel-adding-service" onClick={handleCancelAdding} >Anuluj</button>
                 </form>
             </div>
         </div>

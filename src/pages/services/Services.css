@@ -2,7 +2,7 @@
     position: sticky;
     top: 70px;
     z-index: 10;
-    background-color: #f7f7f7;
+    background-color: #E9F1FA;
     padding: 0 16px;
     width: 50%;
     display: flex;
@@ -21,7 +21,6 @@
     max-height: 500px;
     margin: auto;
     border-radius: 8px;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2)
 }
 
 .home-services {
@@ -39,10 +38,10 @@
     font-family: Tahoma, sans-serif;
 }
 
-.add-service-button {
+.add-new-service-button {
     padding: 13px 10px;
     width: 200px;
-    background-color: #59ce8f;
+    background-color: #00ABE4;
     color: white;
     border: none;
     border-radius: 6px;
@@ -50,10 +49,6 @@
     font-size: 16px;
     white-space: nowrap;
     font-family: Tahoma, sans-serif;
-}
-
-.add-service-button:hover {
-    background-color: #48a474;
 }
 
 button, input {

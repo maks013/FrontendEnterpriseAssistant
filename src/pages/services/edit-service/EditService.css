@@ -33,16 +33,6 @@
     cursor: pointer;
 }
 
-.modal-actions button:first-child {
-    background-color: white;
-    color: #59ce8f;
-}
-
-.modal-actions button:last-child {
-    background-color: white;
-    color: #ff1e00;
-}
-
 .modal form label {
     display: block;
     margin-bottom: 10px;
@@ -58,22 +48,14 @@
     font-family: Tahoma, sans-serif;
 }
 
-.save-button {
+.save-upd-service-button {
     font-family: Tahoma, sans-serif;
     background-color: white;
-    color: #59ce8f;
+    color: #00ABE4;
 }
 
-.save-button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.cancel-button {
+.cancel-upd-service-button {
     font-family: Tahoma, sans-serif;
     background-color: white;
-    color: #ff1e00;
-}
-
-.cancel-button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #0d3e71;
 }

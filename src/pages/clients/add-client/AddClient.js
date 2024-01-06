@@ -101,7 +101,7 @@ const AddClient = () => {
                     <div className="input-group">
                         <input type="text" id="emailAddress" placeholder="Adres e-mail" onChange={handleChange} required/>
                     </div>
-                    <button type="submit">Dodaj klienta</button>
+                    <button className="add-button" type="submit">Dodaj klienta</button>
                     <button className="cancel-adding" onClick={handleCancelAdding}>Anuluj</button>
                 </form>
             </div>

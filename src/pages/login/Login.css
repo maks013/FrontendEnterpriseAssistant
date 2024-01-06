@@ -9,6 +9,7 @@ html, body {
 
 h1 {
     font-size: 45px;
+    color: #0d3e71;
 }
 
 .login-container {
@@ -16,8 +17,7 @@ h1 {
     max-width: 300px;
     margin: auto;
     padding: 40px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background: #ffffff;
+    background: #E9F1FA;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -39,10 +39,10 @@ h1 {
     border-radius: 5px;
 }
 
-button {
+.login-button {
     width: 100%;
     padding: 10px;
-    background-color: #59ce8f;
+    background-color: #00ABE4;
     border: none;
     color: white;
     font-size: 16px;
@@ -56,6 +56,6 @@ button {
 }
 
 .register-link a {
-    color: #ff1e00;
+    color: #0d3e71;
     text-decoration: none;
 }

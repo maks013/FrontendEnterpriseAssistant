@@ -1,6 +1,6 @@
 .client-card {
     background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 20px rgb(13, 62, 113, 0.3);
     border-radius: 8px;
     padding: 16px;
     margin: 20px;
@@ -22,6 +22,7 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 8px;
+    color: #0d3e71;
     font-family: Tahoma, sans-serif;
 }
 
@@ -42,14 +43,9 @@
 .details-button {
     padding: 10px 20px;
     background-color: white;
-    color: #59ce8f;
+    color: #00ABE4;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-family: Tahoma, sans-serif;
-}
-
-.details-button:hover {
-    background-color: #59ce8f;
-    color: white;
 }

@@ -91,8 +91,8 @@ const EditService = ({service, onSave, onClose}) => {
                         />
                     </label>
                     <div className="modal-actions">
-                        <button className="save-button" type="submit">Zapisz</button>
-                        <button className="cancel-button" type="button" onClick={onClose}>Anuluj</button>
+                        <button className="save-upd-service-button" type="submit">Zapisz</button>
+                        <button className="cancel-upd-service-button" type="button" onClick={onClose}>Anuluj</button>
                     </div>
                 </form>
             </div>
