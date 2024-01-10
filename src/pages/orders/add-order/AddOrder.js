@@ -3,6 +3,39 @@ import './AddOrder.scss';
 import Header from "../../../components/header/Header";
 import {useNavigate} from "react-router-dom";
 
+
+const AddOrderItemRow = ({ item, index, itemType, onItemChange, onItemDelete, products, services }) => {
+    return (
+        <div className="form-row" key={`${itemType}-${index}`}>
+            <div className="input-group">
+                <select
+                    value={item[itemType + 'Id']}
+                    onChange={(e) => onItemChange(index, { ...item, [itemType + 'Id']: e.target.value })}
+                    required
+                >
+                    <option value="">{itemType === 'product' ? 'Wybierz produkt' : 'Wybierz usługę'}</option>
+                    {(itemType === 'product' ? products : services).map((option) => (
+                        <option key={option.id} value={option.id}>{option.name}</option>
+                    ))}
+                </select>
+            </div>
+            <div className="input-group">
+                <input
+                    type="number"
+                    placeholder="Quantity"
+                    min="1"
+                    value={item.quantity}
+                    onChange={(e) => onItemChange(index, { ...item, quantity: e.target.value })}
+                    required
+                />
+            </div>
+            <div className="input-group">
+                <button className="cancel-order-button" type="button" onClick={() => onItemDelete(index, itemType)}>Anuluj</button>
+            </div>
+        </div>
+    );
+};
+
 const AddOrder = () => {
     const navigate = useNavigate();
     const [clients, setClients] = useState([]);
@@ -55,36 +88,42 @@ const AddOrder = () => {
         navigate("/orders");
     };
 
-    const handleItemChange = (itemType, itemId, itemQuantity) => {
-        const parsedId = parseInt(itemId);
-        const parsedQuantity = parseInt(itemQuantity);
+    const handleAddItem = (itemType) => {
+        const newEntry = itemType === 'product'
+            ? { productId: '', quantity: 1 }
+            : { serviceId: '', quantity: 1 };
 
-        if (isNaN(parsedId) || isNaN(parsedQuantity)) {
-            console.error("Invalid product or service ID or quantity:", itemId, itemQuantity);
-            return;
-        }
-
-        const isProduct = itemType === 'product';
-        const updatedItems = isProduct ? [...selectedProducts] : [...selectedServices];
-
-        const index = updatedItems.findIndex(item => item[isProduct ? 'productId' : 'serviceId'] === parsedId);
-        if (index >= 0) {
-            if (parsedQuantity > 0) {
-                updatedItems[index].quantity = parsedQuantity;
-            } else {
-                updatedItems.splice(index, 1);
-            }
-        } else if (parsedQuantity > 0) {
-            updatedItems.push({[isProduct ? 'productId' : 'serviceId']: parsedId, quantity: parsedQuantity});
-        }
-
-        console.log("Updated items:", updatedItems);
-        if (isProduct) {
-            setSelectedProducts([...updatedItems]);
+        if (itemType === 'product') {
+            setSelectedProducts([...selectedProducts, newEntry]);
         } else {
-            setSelectedServices([...updatedItems]);
+            setSelectedServices([...selectedServices, newEntry]);
         }
     };
+
+    const handleItemChange = (index, updatedItem, itemType) => {
+        if (itemType === 'product') {
+            const newList = [...selectedProducts];
+            newList[index] = updatedItem;
+            setSelectedProducts(newList);
+        } else {
+            const newList = [...selectedServices];
+            newList[index] = updatedItem;
+            setSelectedServices(newList);
+        }
+    };
+
+    const handleItemDelete = (index, itemType) => {
+        if (itemType === 'product') {
+            const newList = [...selectedProducts];
+            newList.splice(index, 1);
+            setSelectedProducts(newList);
+        } else {
+            const newList = [...selectedServices];
+            newList.splice(index, 1);
+            setSelectedServices(newList);
+        }
+    };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -142,72 +181,82 @@ const AddOrder = () => {
 
     return (
         <div className="home-add-order">
-            <Header/>
+            <Header />
             <div className="add-order-container">
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
                         <label htmlFor="clientId">Klient:</label>
-                        <select className="order-select" id="clientId" value={formData.clientId} onChange={handleChange} required>
+                        <select
+                            id="clientId"
+                            value={formData.clientId}
+                            onChange={handleChange}
+                            required
+                        >
                             <option value="">Wybierz klienta</option>
                             {clients.map((client) => (
                                 <option key={client.id} value={client.id}>{client.companyName}</option>
                             ))}
                         </select>
                     </div>
-                    <div className="form-row">
-                        <div className="input-group">
-                            <label htmlFor="product">Produkt:</label>
-                            <select id="product" value={tempProductId} onChange={(e) => setTempProductId(e.target.value)}>
-                                <option value="">Wybierz produkt</option>
-                                {products.map((product) => (
-                                    <option key={product.id} value={product.id}>{product.name}</option>
-                                ))}
-                            </select>
-                        </div>
-                        <div className="input-group">
-                            <div className="input-with-button">
-                                <input type="number" placeholder="Ilość" min="1" value={tempProductQuantity}
-                                       onChange={(e) => setTempProductQuantity(e.target.value)} required />
-                                <button className="add-item-button" type="button"
-                                        onClick={() => handleItemChange('product', tempProductId, tempProductQuantity)}>Dodaj produkt
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="form-row">
-                        <div className="input-group">
-                            <label htmlFor="service">Usługa:</label>
-                            <select id="service" value={tempServiceId} onChange={(e) => setTempServiceId(e.target.value)}>
-                                <option value="">Wybierz usługę</option>
-                                {services.map((service) => (
-                                    <option key={service.id} value={service.id}>{service.name}</option>
-                                ))}
-                            </select>
-                        </div>
-                        <div className="input-group">
-                            <div className="input-with-button">
-                                <input type="number" placeholder="Ilość" min="1" value={tempServiceQuantity}
-                                       onChange={(e) => setTempServiceQuantity(e.target.value)} required />
-                                <button className="add-item-button" type="button"
-                                        onClick={() => handleItemChange('service', tempServiceId, tempServiceQuantity)}>Dodaj usługę
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    {selectedProducts.map((product, index) => (
+                        <AddOrderItemRow
+                            key={`product-${product.productId}-${index}`}
+                            item={product}
+                            index={index}
+                            itemType="product"
+                            onItemChange={(index, item) => handleItemChange(index, item, 'product')}
+                            onItemDelete={(index) => handleItemDelete(index, 'product')}
+                            products={products}
+                            services={services}
+                        />
+                    ))}
+
+                    <button className="add-order-button" type="button" onClick={() => handleAddItem('product')}>+ Dodaj produkt</button>
+
+                    {selectedServices.map((service, index) => (
+                        <AddOrderItemRow
+                            key={`service-${index}`}
+                            item={service}
+                            index={index}
+                            itemType="service"
+                            onItemChange={handleItemChange}
+                            onItemDelete={handleItemDelete}
+                            products={products}
+                            services={services}
+                        />
+                    ))}
+                    <button className="add-order-button" type="button" onClick={() => handleAddItem('service')}>+ Dodaj usługę</button>
+
                     <div className="input-group">
                         <label htmlFor="deadline">Przewidywany termin realizacji:</label>
-                        <input type="date" id="deadline" value={formData.deadline} onChange={handleChange} required/>
+                        <input
+                            type="date"
+                            id="deadline"
+                            value={formData.deadline}
+                            onChange={handleChange}
+                            required
+                        />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="payment">Sposób zapłaty:</label>
-                        <select id="payment" value={formData.payment} onChange={handleChange} required>
+                        <label htmlFor="payment">Metoda płatności:</label>
+                        <select
+                            id="payment"
+                            value={formData.payment}
+                            onChange={handleChange}
+                            required
+                        >
                             <option value="TRANSFER">Przelew</option>
                             <option value="CASH">Gotówka</option>
                         </select>
                     </div>
                     <div className="input-group">
-                        <label htmlFor="daysToPay">Termin zapłaty:</label>
-                        <select id="daysToPay" value={formData.daysToPay} onChange={handleChange} required>
+                        <label htmlFor="daysToPay">Dni do zapłaty:</label>
+                        <select
+                            id="daysToPay"
+                            value={formData.daysToPay}
+                            onChange={handleChange}
+                            required
+                        >
                             <option value="SEVEN">7 dni</option>
                             <option value="FOURTEEN">14 dni</option>
                             <option value="THIRTY">30 dni</option>
@@ -215,9 +264,14 @@ const AddOrder = () => {
                     </div>
                     <div className="input-group">
                         <label htmlFor="additionalInformation">Dodatkowe informacje:</label>
-                        <input type="text" id="additionalInformation" value={formData.additionalInformation}
-                               onChange={handleChange}/>
+                        <input
+                            type="text"
+                            id="additionalInformation"
+                            value={formData.additionalInformation}
+                            onChange={handleChange}
+                        />
                     </div>
+
                     <button className="add-order-button" type="submit">Dodaj zamówienie</button>
                     <button className="cancel-order-button" type="button" onClick={handleCancelAdding}>Anuluj</button>
                 </form>
