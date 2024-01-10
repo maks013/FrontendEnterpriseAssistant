@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Header from '../../components/header/Header';
 import ProductCard from '../products/product-card/ProductCard.js'
-import './Products.css';
+import './Products.scss';
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../auth/useAuth";
 

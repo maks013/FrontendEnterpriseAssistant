@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ClientCard from './client-card/ClientCard';
 import Header from '../../components/header/Header';
-import './Clients.css';
+import './Clients.scss';
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../auth/useAuth";
 

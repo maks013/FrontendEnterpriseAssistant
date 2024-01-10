@@ -1,0 +1,29 @@
+@use '../../scss/index' as *;
+
+.search-add-container {
+    @include base-search-add-container;
+}
+
+.service-list {
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+    gap: 16px;
+    width: 100%;
+    max-width: 1300px;
+    max-height: 500px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.home-services {
+    padding-top: 5px;
+    min-width: 1300px;
+}
+
+.search-box {
+    @include base-search-box;
+}
+
+.add-new-service-button {
+    @include base-add-new-button;
+}

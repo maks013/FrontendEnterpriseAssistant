@@ -1,5 +1,5 @@
 import React from 'react';
-import './ClientCard.css';
+import './ClientCard.scss';
 import ClientDetails from "../client-details/ClientDetails";
 import EditClient from "../edit-client/EditClient.js";
 

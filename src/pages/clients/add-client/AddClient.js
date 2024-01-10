@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './AddClient.css';
+import './AddClient.scss';
 import Header from "../../../components/header/Header";
 import {useAuth} from "../../../auth/useAuth";
 import {useNavigate} from "react-router-dom";
@@ -47,7 +47,6 @@ const AddClient = () => {
                 email: formData.emailAddress
             }
         };
-
         try {
             const response = await fetch('http://localhost:8080/clients', {
                 method: 'POST',

@@ -1,14 +1,7 @@
+@use '../../../scss/index' as *;
+
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    @include base-modal-overlay;
 }
 
 .modal {
@@ -45,17 +38,15 @@
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-family: Tahoma, sans-serif;
+    font-family: $base-font;
 }
 
 .save-upd-service-button {
-    font-family: Tahoma, sans-serif;
+    font-family: $base-font;
     background-color: white;
-    color: #00ABE4;
+    color: $base-light-blue-color;
 }
 
 .cancel-upd-service-button {
-    font-family: Tahoma, sans-serif;
-    background-color: white;
-    color: #0d3e71;
+    @include cancel-edit-button;
 }

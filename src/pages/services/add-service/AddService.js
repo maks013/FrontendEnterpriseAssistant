@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './AddService.css';
+import './AddService.scss';
 import Header from "../../../components/header/Header";
 import {useAuth} from "../../../auth/useAuth";
 import {useNavigate} from "react-router-dom";

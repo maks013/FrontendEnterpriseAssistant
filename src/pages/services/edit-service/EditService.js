@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './EditService.css';
+import './EditService.scss';
 
 const EditService = ({service, onSave, onClose}) => {
     const [formData, setFormData] = useState({...service});

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './Register.css';
+import './Register.scss';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
@@ -25,7 +25,7 @@ const Register = () => {
             if (response.status === 201) {
                 const result = response.data;
                 console.log('Registration successful', result);
-                navigate('/login');
+                navigate('/');
             } else {
                 throw new Error('Registration failed');
             }
@@ -77,7 +77,7 @@ const Register = () => {
                 <button className="register-button"  type="submit">Załóż konto</button>
             </form>
             <p className="login-link">
-                Mam już konto. <a href="/login">Zaloguj się.</a>
+                Mam już konto. <a href="/">Zaloguj się.</a>
             </p>
         </div>
     );

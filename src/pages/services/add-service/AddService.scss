@@ -1,34 +1,35 @@
-.home-add-client {
+@use '../../../scss/index' as *;
+
+.home-add-service {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     min-height: 100vh;
     margin-top: 200px;
-    background-color: #E9F1FA;
-    color: #0d3e71;
+    background-color: $base-background-color;
 }
 
-.add-client-container {
+.add-service-container {
     width: 100%;
     max-width: 600px;
     padding: 20px;
-    /*box-shadow: 0 2px 20px rgb(13, 62, 113, 0.3);*/
-    background: #E9F1FA;
+    background: $base-background-color;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: $base-dark-blue-color;
 }
 
-.client-text {
+.service-text {
     margin-bottom: 20px;
     font-size: 26px;
     font-weight: bold;
-    font-family: Tahoma, sans-serif;
+    font-family: $base-font;
 }
 
-.add-client-form {
+.add-service-form {
     width: 100%;
 }
 
@@ -43,28 +44,28 @@
     border-radius: 8px;
 }
 
-.add-button {
+.add-service-button {
     width: 100%;
     padding: 5px;
-    background-color: #E9F1FA;
+    background-color: $base-background-color;
     border: none;
-    color: #00ABE4;
+    color: $base-light-blue-color;
     font-size: 16px;
     margin-top: 5px;
     cursor: pointer;
     border-radius: 6px;
-    font-family: Tahoma, sans-serif;
+    font-family: $base-font;
 }
 
-.cancel-adding {
+.cancel-adding-service {
     width: 100%;
     padding: 5px;
-    background-color: #E9F1FA;
+    background-color: $base-background-color;
     border: none;
-    color: #0d3e71;
+    color: $base-dark-blue-color;
     font-size: 16px;
     margin-top: 5px;
     cursor: pointer;
     border-radius: 6px;
-    font-family: Tahoma, sans-serif;
+    font-family: $base-font;
 }

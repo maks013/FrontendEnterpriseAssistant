@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './ClientDetails.css'
+import './ClientDetails.scss'
 import ConfirmationModal from '../../../components/confirmation/ConfirmationModal';
 
 const ClientDetails = ({client, onClose, onEdit}) => {

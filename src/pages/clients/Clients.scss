@@ -1,0 +1,42 @@
+@use '../../scss/index' as *;
+
+.search-add-container {
+    @include base-search-add-container;
+}
+
+.clients-page {
+    background-color: $base-background-color;
+}
+
+.client-list {
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 1300px;
+    max-height: 500px;
+    margin: auto;
+    border-radius: 8px;
+    background-color: $base-background-color;
+}
+
+.home-clients {
+    padding-top: 5px;
+    min-width: 1300px;
+    background-color: $base-background-color;
+}
+
+.search-box {
+    @include base-search-box;
+}
+
+.add-new-client-button {
+    @include base-add-new-button;
+}
+
+button, input {
+    margin: 0;
+    padding: 0;
+}
