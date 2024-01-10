@@ -1,0 +1,71 @@
+@use '../../../scss/index' as *;
+
+.home-add-order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  margin-top: 200px;
+  background-color: $base-background-color;
+  color: $base-dark-blue-color;
+}
+
+.add-order-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background: $base-background-color;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-text {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  font-family: $base-font;
+}
+
+.add-order-form {
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input,
+.input-group select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.add-order-button {
+  @include save-edit-button;
+  background-color: transparent;
+  width: 100%;
+  margin-top: 5px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.cancel-order-button {
+  @include cancel-edit-button;
+  background-color: transparent;
+  width: 100%;
+  margin-top: 5px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.add-item-button {
+  @include save-edit-button;
+  background-color: transparent;
+  width: 100%;
+  margin-top: 10px;
+}
