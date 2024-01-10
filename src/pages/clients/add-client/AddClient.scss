@@ -1,3 +1,5 @@
+@use '../../../scss/index' as *;
+
 .home-add-client {
     display: flex;
     flex-direction: column;
@@ -5,15 +7,15 @@
     padding: 20px;
     min-height: 100vh;
     margin-top: 200px;
-    background-color: #f7f7f7;
+    background-color: $base-background-color;
+    color: $base-dark-blue-color;
 }
 
 .add-client-container {
     width: 100%;
     max-width: 600px;
     padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background: #ffffff;
+    background: $base-background-color;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -24,7 +26,7 @@
     margin-bottom: 20px;
     font-size: 26px;
     font-weight: bold;
-    font-family: Tahoma, sans-serif;
+    font-family: $base-font;
 }
 
 .add-client-form {
@@ -42,12 +44,12 @@
     border-radius: 8px;
 }
 
-button {
+.add-button {
     width: 100%;
     padding: 5px;
-    background-color: white;
+    background-color: $base-background-color;
     border: none;
-    color: #59ce8f;
+    color: $base-light-blue-color;
     font-size: 16px;
     margin-top: 5px;
     cursor: pointer;
@@ -58,12 +60,12 @@ button {
 .cancel-adding {
     width: 100%;
     padding: 5px;
-    background-color: white;
+    background-color: $base-background-color;
     border: none;
-    color: #ff1e00;
+    color: $base-dark-blue-color;
     font-size: 16px;
     margin-top: 5px;
     cursor: pointer;
     border-radius: 6px;
-    font-family: Tahoma, sans-serif;
+    font-family: $base-font;
 }

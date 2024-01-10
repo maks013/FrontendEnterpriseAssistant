@@ -1,29 +1,37 @@
 import React from 'react';
-import './Header.css';
+import './Header.scss';
 import {useNavigate} from "react-router-dom";
 
 const Header = () => {
     const navigate = useNavigate();
 
-    const handleClientsClick = () => {
-        navigate("/clients");
-    };
-
     const handleHomeClick = () => {
         navigate("/home");
     };
 
+    const handleOrdersClick = () => {
+        navigate("/orders");
+    };
+
+    const handleClientsClick = () => {
+        navigate("/clients");
+    };
+
+    const handleInvoicesClick = () => {
+        navigate("/invoices");
+    };
+
     const handleLogout = () => {
         localStorage.removeItem('token');
-        navigate('/login');
+        navigate('/');
     };
 
     return (
         <div className="header">
-            <button className="button" onClick={() => handleHomeClick()}>Strona główna</button>
-            <button className="button">Zamówienia</button>
-            <button className="button" onClick={() => handleClientsClick()}>Klienci</button>
-            <button className="button">Faktury</button>
+            <button className="button" onClick={handleHomeClick}>Strona główna</button>
+            <button className="button" onClick={handleOrdersClick}>Zamówienia</button>
+            <button className="button" onClick={handleClientsClick}>Klienci</button>
+            <button className="button" onClick={handleInvoicesClick}>Faktury</button>
             <button className="button">Moje konto</button>
             <button className="button logout" onClick={handleLogout}>Wyloguj</button>
         </div>

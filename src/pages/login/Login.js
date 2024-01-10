@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
-import './Login.css';
+import './Login.scss';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -53,7 +53,7 @@ const Login = () => {
                         required
                     />
                 </div>
-                <button type="submit">Zaloguj się</button>
+                <button className="login-button" type="submit">Zaloguj się</button>
             </form>
             <p className="register-link">
                 Nie masz konta? <a href="/register">Zarejestruj się.</a>

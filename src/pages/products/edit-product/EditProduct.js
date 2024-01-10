@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './EditProduct.css';
+import './EditProduct.scss';
 
 const EditProduct = ({product, onSave, onClose}) => {
     const [formData, setFormData] = useState({...product});

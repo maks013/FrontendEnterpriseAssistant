@@ -1,3 +1,5 @@
+@use '../../scss/index' as *;
+
 .home {
     display: flex;
     flex-direction: column;
@@ -5,7 +7,11 @@
     padding: 20px;
     gap: 20px;
     min-height: 100vh;
-    background-color: #f7f7f7;
+    background-color: $base-background-color;
+}
+
+html, body {
+    background-color: $base-background-color;
 }
 
 .main-content {
@@ -20,9 +26,12 @@
 }
 
 .tile {
-    background: #fff;
+    background: white;
+    color: $base-dark-blue-color;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: white;
+    border-width: 10px;
+    box-shadow: $base-shadow;
     padding: 20px;
     text-align: center;
     font-size: 24px;
@@ -34,15 +43,15 @@
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: Tahoma, sans-serif;
+    font-family: $base-font;
 }
 
 .tile:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
 }
 
 .tile.add-order {
-    background-color: #59ce8f;
+    background-color: $base-light-blue-color;
     color: white;
 }
 

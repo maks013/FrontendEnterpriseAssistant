@@ -1,0 +1,82 @@
+@use 'colors' as *;
+@use 'variables' as *;
+
+@mixin cancel-edit-button {
+  font-family: $base-font;
+  background-color: white;
+  color: $base-dark-blue-color;
+}
+
+@mixin save-edit-button {
+  font-family: $base-font;
+  background-color: white;
+  color: $base-light-blue-color;
+}
+
+@mixin base-product-and-service-card {
+  background: #fff;
+  box-shadow: $base-shadow;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: $base-font;
+  color: $base-dark-blue-color;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+@mixin base-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+@mixin base-search-add-container {
+  position: sticky;
+  top: 70px;
+  z-index: 10;
+  background-color: $base-background-color;
+  padding: 0 16px;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+@mixin base-search-box{
+  padding: 5px 5px;
+  height: 35px;
+  width: 450px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: $base-background-color;
+  font-family: $base-font;
+  outline: none;
+}
+
+@mixin base-add-new-button{
+  padding: 10px 10px;
+  background-color: $base-light-blue-color;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: $base-font;
+  box-shadow: $base-shadow;
+}

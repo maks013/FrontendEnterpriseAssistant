@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
-import './ServiceCard.css';
+import './ServiceCard.scss';
 import EditService from "../edit-service/EditService";
 import ConfirmationModal from "../../../components/confirmation/ConfirmationModal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

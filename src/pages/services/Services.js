@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Header from '../../components/header/Header';
 import ServiceCard from '../services/service-card/ServiceCard.js'
-import './Services.css';
+import './Services.scss';
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../auth/useAuth";
 
@@ -70,7 +70,7 @@ const Services = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
-                <button className="add-service-button" onClick={handleAddClient}>+ Dodaj nową usługę</button>
+                <button className="add-new-service-button" onClick={handleAddClient}>+ Dodaj nową usługę</button>
             </div>
             <div className="service-list">
                 {filteredClients.map((service, index) => (

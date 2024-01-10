@@ -1,0 +1,50 @@
+@use '../../../scss/index' as *;
+
+.modal-overlay {
+    @include base-modal-overlay;
+}
+
+.modal {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.modal-actions button {
+    margin-left: 10px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: $base-font;
+}
+
+.save-button {
+    @include save-edit-button;
+}
+
+.cancel-button {
+    @include cancel-edit-button;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './EditClient.css';
+import './EditClient.scss';
 
 const EditClient = ({client, onSave, onClose}) => {
     const [formData, setFormData] = React.useState({

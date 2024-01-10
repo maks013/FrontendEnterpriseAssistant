@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ClientCard from './client-card/ClientCard';
 import Header from '../../components/header/Header';
-import './Clients.css';
+import './Clients.scss';
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../auth/useAuth";
 
@@ -60,8 +60,9 @@ const Clients = () => {
     };
 
     return (
+        <div className="clients-page">
+        <Header/>
         <div className="home-clients">
-            <Header/>
             <div className="search-add-container">
                 <input
                     type="text"
@@ -70,7 +71,7 @@ const Clients = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
-                <button className="add-client-button" onClick={handleAddClient}>+ Dodaj nowego klienta</button>
+                <button className="add-new-client-button" onClick={handleAddClient}>+ Dodaj nowego klienta</button>
             </div>
             <div className="client-list">
                 {filteredClients.map((client, index) => (
@@ -82,6 +83,7 @@ const Clients = () => {
                     />
                 ))}
             </div>
+        </div>
         </div>
     );
 };
