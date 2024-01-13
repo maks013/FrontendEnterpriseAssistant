@@ -21,6 +21,10 @@ const Header = () => {
         navigate("/invoices");
     };
 
+    const handleMyAccountClick = () => {
+        navigate("/my-account");
+    };
+
     const handleLogout = () => {
         localStorage.removeItem('token');
         navigate('/');
@@ -32,7 +36,7 @@ const Header = () => {
             <button className="button" onClick={handleOrdersClick}>Zamówienia</button>
             <button className="button" onClick={handleClientsClick}>Klienci</button>
             <button className="button" onClick={handleInvoicesClick}>Faktury</button>
-            <button className="button">Moje konto</button>
+            <button className="button" onClick={handleMyAccountClick}>Moje konto</button>
             <button className="button logout" onClick={handleLogout}>Wyloguj</button>
         </div>
     );

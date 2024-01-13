@@ -1,0 +1,19 @@
+@use "../../scss/index" as *;
+
+.myacc-name{
+  font-size: 50px;
+  font-family: $base-font;
+  color: $base-dark-blue-color;
+}
+
+.myacc-text{
+  font-size: 20px;
+  font-family: $base-font;
+  color: $base-dark-blue-color;
+}
+
+.employees-btn{
+  font-family: $base-font;
+  background-color: $base-light-blue-color;
+  color: white;
+}
