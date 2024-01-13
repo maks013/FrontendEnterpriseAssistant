@@ -1,0 +1,46 @@
+@use '../../scss/index' as *;
+
+.search-add-container {
+  @include base-search-add-container;
+  justify-content: space-between;
+
+  .status-button {
+    margin: 0 5px;
+    background-color: $base-dark-blue-color;
+    color: white;
+  }
+  .status-button-processing {
+    background-color: $base-processing-status-color;
+  }
+  .status-button-canceled {
+    background-color: $base-canceled-status-color;
+  }
+  .status-button-completed {
+    background-color: $base-completed-status-color;
+  }
+}
+
+.order-list {
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+  gap: 16px;
+  width: 100%;
+  max-width: 1300px;
+  max-height: 500px;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.home-orders {
+  padding-top: 5px;
+  min-width: 1300px;
+}
+
+.search-box {
+  @include base-search-box;
+
+}
+
+.add-new-order-button {
+  @include base-add-new-button;
+}
