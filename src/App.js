@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Login from './pages/login/Login';
+import MyAccount from './pages/my-account/MyAccount';
 import Register from './pages/register/Register';
 import Home from './pages/home/Home';
 import Clients from './pages/clients/Clients';
@@ -12,12 +13,15 @@ import AddProduct from './pages/products/add-product/AddProduct';
 import Orders from './pages/orders/Orders';
 import AddOrder from './pages/orders/add-order/AddOrder';
 import Invoices from './pages/invoices/Invoices';
+import EmployeeAccounts from "./pages/my-account/employee-accounts/EmployeeAccounts";
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Login/>}/>
+                <Route path="/my-account" element={<MyAccount/>}/>
+                <Route path="/employee-accounts" element={<EmployeeAccounts/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/clients" element={<Clients/>}/>
